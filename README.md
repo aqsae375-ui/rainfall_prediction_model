@@ -119,11 +119,14 @@ After debugging and correcting the data leakage issue in the preprocessing pipel
 | Model                        | Accuracy | Precision | Recall | F1-score |
 | :--------------------------- | :------- | :-------- | :----- | :------- |
 | **Logistic Regression (Tuned)** | 0.9073   | 0.8453    | 0.7089 | 0.7711   |
-| **Random Forest (CV Mean)**  | -        | -         | 0.9998 | -        |
+| **Random Forest (CV Mean)**  | NaN        | NaN         | 0.9998 | NaN        |
 | **XGBoost (Tuned)**          | 0.9992   | 1.0000    | 0.9966 | 0.9983   |
 
 -   **Logistic Regression**: This model serves as a strong baseline, showing consistent performance with an accuracy of around 90% and recall of 70.9%. Its performance is stable and interpretable.
 -   **Random Forest**: While its cross-validation mean recall was exceptionally high (0.9998), suggesting strong performance, a direct comparison of all metrics on the test set was not performed after tuning. The high recall from CV could indicate strong learning on the training data, but further evaluation on the unseen test set is crucial for generalization.
+  Note: Random Forest was optimized using cross-validated recall; 
+other metrics were not computed and therefore appear as NaN.
+
 -   **XGBoost**: After debugging the data leakage and tuning, XGBoost delivered outstanding performance on the test set, achieving an accuracy of 0.9992, perfect precision (1.0000), and a very high recall of 0.9966. This suggests that XGBoost is highly effective for this prediction task, particularly in minimizing false negatives (missed rain events), which is critical for rain prediction.
 
 Given the corrected evaluation, the **tuned XGBoost model** stands out as the most performant, especially concerning recall, which is a key metric for scenarios where missing a positive event (rain) has significant consequences.

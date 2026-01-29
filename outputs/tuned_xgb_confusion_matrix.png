@@ -1,0 +1,18 @@
+import matplotlib.pyplot as plt
+from sklearn.metrics import ConfusionMatrixDisplay
+import os
+
+# Create outputs directory if it doesn't exist
+output_dir = 'outputs/'
+os.makedirs(output_dir, exist_ok=True)
+
+# Plot Confusion Matrix for Tuned XGBoost Model
+fig, ax = plt.subplots(figsize=(8, 6))
+ConfusionMatrixDisplay.from_estimator(best_xgb_model, X_test, y_test, cmap=plt.cm.Blues, ax=ax)
+ax.set_title('Confusion Matrix for Tuned XGBoost Model')
+plt.show()
+
+# Save the confusion matrix to a file
+confusion_matrix_path = os.path.join(output_dir, 'tuned_xgb_confusion_matrix.png')
+fig.savefig(confusion_matrix_path)
+print(f"Confusion Matrix saved to {confusion_matrix_path}")

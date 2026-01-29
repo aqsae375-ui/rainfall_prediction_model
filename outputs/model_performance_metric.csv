@@ -1,0 +1,6 @@
+
+| Model                          | Accuracy   | Precision   | Recall   | F1-score   |
+|:-------------------------------|:-----------|:------------|:---------|:-----------|
+| Logistic Regression (Tuned)    | 0.9073     | 0.8453      | 0.7089   | 0.7711     |
+| Random Forest (CV Mean Recall) | nan        | nan         | 0.9998   | nan        |
+| XGBoost (Tuned)                | 0.9992     | 1           | 0.9966   | 0.9983     |

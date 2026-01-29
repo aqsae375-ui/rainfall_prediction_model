@@ -1,0 +1,10 @@
+import matplotlib.pyplot as plt
+from sklearn.metrics import PrecisionRecallDisplay
+
+# Plot Precision-Recall Curve for Tuned XGBoost Model
+fig, ax = plt.subplots(figsize=(8, 6))
+PrecisionRecallDisplay.from_estimator(best_xgb_model, X_test, y_test, ax=ax)
+ax.set_title('Precision-Recall Curve for Tuned XGBoost Model')
+plt.show()
+
+print("Generated Precision-Recall Curve for Tuned XGBoost Model.")
